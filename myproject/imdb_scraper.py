@@ -17,7 +17,7 @@ imdb = []
 for index in range(0, len(movies)):
     movie_string = movies[index].get_text()
     movie = (' '.join(movie_string.split()).replace('.', ''))
-    title = movie[len(str(index))+1:-7]
+    title = movie[len(str(index))+1:-7].lstrip()
     year = re.search('\((.*?)\)', movie_string).group(1)
     data = {"title": title,
             "year": year,
