@@ -1,7 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Movie
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     movie_list = Movie.objects.order_by('-rating')
     output = [{'Title': x.title,
@@ -11,6 +15,7 @@ def index(request):
                 } for x in movie_list]
     return HttpResponse(output)
 
+@login_required
 def display(request,sort_field):
     if not (sort_field in ['title','rating','year']):
         return HttpResponse('Invalid field for sort')
@@ -22,6 +27,7 @@ def display(request,sort_field):
                 } for x in movie_list]
     return HttpResponse(output)
 
+@login_required
 def search(request,query_title):
     movie = Movie.objects.filter(title=query_title)
     if(len(movie)==0):
