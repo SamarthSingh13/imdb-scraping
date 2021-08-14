@@ -12,6 +12,6 @@ Usage:
   
   
 Endpoints: 
- 1) localhost:8000/scraper => displays list of all movies sorted in descending order of rating
- 2) localhost:8000/scraper/display/<field> => displays list of all movies sorted in ascending order of field
- 3) localhost:8000/scraper/search/<query> => dislpay movie with title = query
+ 1) localhost:8000 => login page => use credentials- username:user1 & password:password_1 => looged in => displays list of all movies sorted in descending order of rating
+ 2) localhost:8000/display/<field> => displays list of all movies sorted in ascending order of field
+ 3) localhost:8000/search/<query> => dislpay movie with title = query
